@@ -1,6 +1,6 @@
 # JSON fields extractor
 
-Can extract fields from JSON object.
+Can extract fields / schema from JSON object.
 
 # example
 JSON:

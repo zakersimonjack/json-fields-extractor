@@ -37,7 +37,7 @@ class JSONFieldsAnalyzer {
       const rawKey = keysToProcess.pop();
       const addressKeys = this._convertKeys(rawKey, 'address');
       const schemaKeys = this._convertKeys(rawKey, 'schema');
-      const val = util.deepGet(dataToAnalyze, this._toKeyString(addressKeys));
+      const val = util.deepGet(dataToAnalyze, addressKeys);
       const valType = this._getJSONDataType(val);
 
       if (valType === JSONDataType.OBJECT) {
@@ -50,7 +50,7 @@ class JSONFieldsAnalyzer {
         });
       }
 
-      const schemaKeyString = this._toKeyString(schemaKeys);
+      const schemaKeyString = schemaKeys.join('.');
       if (this.opt.extract_mode === 'type') {
         this._putSchemaDictProperty(schemaKeyString, valType);
       } else if (this.opt.extract_mode === 'value') {
@@ -90,7 +90,7 @@ class JSONFieldsAnalyzer {
 
   _convertKeys(rawKeys, mode) {
     if (this._getJSONDataType(rawKeys) === JSONDataType.STRING) {
-      return rawKeys;
+      return [rawKeys];
     }
 
     const resKeys = [];
@@ -106,10 +106,6 @@ class JSONFieldsAnalyzer {
     });
 
     return resKeys;
-  }
-
-  _toKeyString(keys) {
-    return [].concat(keys).join('.');
   }
 
   _getJSONDataType(val) {
