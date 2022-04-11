@@ -1,0 +1,25 @@
+{
+  "name": "json-fields-extractor",
+  "version": "0.0.1",
+  "description": "extract schema / all fields in JSON data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/zakersimonjack/json-fields-extractor.git"
+  },
+  "keywords": [
+    "json",
+    "fields",
+    "extract",
+    "schema"
+  ],
+  "author": "simon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zakersimonjack/json-fields-extractor/issues"
+  },
+  "homepage": "https://github.com/zakersimonjack/json-fields-extractor#readme"
+}
