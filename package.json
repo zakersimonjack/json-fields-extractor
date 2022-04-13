@@ -1,6 +1,6 @@
 {
   "name": "json-fields-extractor",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "extract schema / all fields in JSON data",
   "main": "index.js",
   "scripts": {
