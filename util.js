@@ -11,7 +11,7 @@ function deepGet(obj, rawPath, defaultValue) {
     return obj;
   }
 
-  const value = castPath(rawPath).reduce((v, k) => (v || {})[k], obj);
+  var value = castPath(rawPath).reduce(function func(v, k) { return (v || {})[k] }, obj);
   return typeof value === 'undefined' ? defaultValue : value;
 }
 
@@ -20,7 +20,7 @@ function deepSet(obj, rawPath, value) {
     return obj;
   }
 
-  castPath(rawPath).reduce((o, k, i, path) => {
+  castPath(rawPath).reduce(function func(o, k, i, path) {
     if (i === path.length - 1) {
       o[k] = value;
       return null;
@@ -42,7 +42,7 @@ function escapeRegExp(string) {
 }
 
 function startsWith(str, pattern) {
-  const reg = new RegExp(`^${escapeRegExp(pattern)}`);
+  var reg = new RegExp('^' + escapeRegExp(pattern));
   return reg.test(str);
 }
 
